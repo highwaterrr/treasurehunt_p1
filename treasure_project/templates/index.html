@@ -1,0 +1,133 @@
+{% load static %}
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title></title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+      
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" />
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+  
+    <style>
+         body {
+            background-image: url('{% static "img/img3.png" %}');
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+        
+            /* Add additional styles as needed */
+        }
+    .card {
+          
+       /* width: 70em; */
+       bottom: 150px;
+       border: 1px solid #aaa152;
+       margin:10%;
+       box-shadow: 5px 5px 20px 10px #0d0d0d;
+       padding: 8px 12px;
+       background-image: linear-gradient(180deg, hsl(53, 66%, 46%), #ddd 40%, #818533);
+      
+      }
+      .btnend{
+   
+   transition: 0.2s ease-in;
+   
+   font-size: 24px;
+   text-decoration: none;
+   color: #bf2525;
+   font-weight: bold;
+   border: 1px solid black;
+   padding:2px;
+   background:#b1830f;
+   margin: 10px;
+   border-radius: 8px;
+   
+   }
+   
+   .btnend:hover{
+   transition: 0.2s ease-out;
+   box-shadow: 0px 0px 10px 1px black;
+   }
+   #typewriter {
+  font-size: 1.5em; 
+  font-family: sans-serif; 
+  }
+      </style>
+      </head>
+      <body>
+    <br>
+    <br>
+    
+    <div class="card">
+    <div id="typewriter">
+      Hello there...!!.This game is about an archaeologist who is trapped in a place and how he escaped from it by using his intelligence.
+        And now the game is-
+       You're an archaeologist who's trying to find artifacts on a mountain and while excavating , you've fallen into deep dried pit you're thinking of the ways to get out of the pit. While observing the pit, you find that there's an hidden door inside the pit. To be able to open that door you need to solve a riddle. Once you enter you'll find another locked door and you need to recursively answer all the riddles to find a way to escape from that place.There are dead ends in between these doors.Ok, let's start the game now!!
+       </div>
+       <center>
+          <center>
+          <a href="{% url 'clue1' %}"> 
+          <button class = "btnend" id="btn" type="submit" name="start">Start</button>
+          </a>
+          </center>
+          <br>
+          <center>
+          <a href="{% url 'login' %}">
+        
+          <button class="btnend" id="btn1" type="submit" name="logout">Logout</button>
+          </a>
+          </center>
+        </center>
+    </div>
+    <script>
+        let i = 0;
+  
+        let target = document.getElementById("typewriter");
+        let text = target.innerHTML;
+        target.innerHTML = " ";
+        let speed = 8; //speed duration of effect in millisec
+        document.getElementById("btn").style.display = "none";
+        let flag = false;
+        if (document.getElementById("btn1"))
+        {
+          document.getElementById("btn1").style.display = "none";
+          flag = true;
+        }
+  
+        
+        typeWriter(); //to call function
+  
+        function typeWriter() {
+          
+          if (i < text.length) {
+              // while(text.charAt(i)=='\n') i++;
+            target.innerHTML += text.charAt(i);
+            i++;
+            if(i == text.length-1)
+            {
+              document.getElementById("btn").style.display = "";
+              if(flag)
+                document.getElementById("btn1").style.display = "";
+  
+            }
+  
+            setTimeout(typeWriter, speed);
+          }
+          
+        }
+  
+        
+      </script>
+     
+    </body>
+        
+</html>

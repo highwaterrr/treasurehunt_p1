@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>admin page</title>
+
+    </head>
+    <style>
+       table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+  }
+
+  td, th {
+    border: 1px solid hwb(0 5% 95% / 0.747);
+   
+    text-align: left;
+    padding: 8px;
+  }
+
+  
+    tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  tr:nth-child(odd) {
+    background-color: #ddd;
+  }
+
+      
+
+    </style>
+    <body>
+        <h1><center>Dashboard</center></h1>
+        <div class="table-container">
+          <center>
+            <table class="table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for result in quiz_results %}
+                  <tr>
+                    <td>{{ result.username }}</td>
+                    <td>{{ result.useremail }}</td>
+                    <td>{{ result.status }}</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            </table>
+          </center>
+        </div>
+        
+    </body>
+</html>

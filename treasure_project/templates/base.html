@@ -1,0 +1,69 @@
+{% block base_content %}
+    <head>
+        <style>
+            .timer {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 24px;
+                font-weight: bold;
+                color: #ffffff;
+                background-color: #333333;
+                padding: 10px;
+                border-radius: 10px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+                animation: timer-anim 1s linear infinite;
+                height: 100px;
+                width: 200px;
+            }
+            
+            @keyframes timer-anim {
+                0% {
+                    transform: scale(1);
+                }
+                50% {
+                    transform: scale(1.1);
+                }
+                100% {
+                    transform: scale(1);
+                }
+            }
+        </style>
+    </head>
+        <span id="timer" class="timer">00:00</span>
+        <script>
+            window.onload = function() {
+                var st = 'stime';
+            //     if(sessionStorage.length > 1)
+            // {
+            //     destvar();
+            // }   
+                if (sessionStorage.getItem(st) == null) {
+                    sessionStorage.setItem(st, (Date.now()).toString());
+                }
+            }
+
+            
+            window.setInterval((function() {
+                var st = 'stime';
+                var start = (sessionStorage.getItem(st) == null) ? Date.now() : Number(sessionStorage.getItem(st));
+                var d = document.getElementById('timer');
+                d.innerHTML = "0:00";
+                return function() {
+                    var res = Math.floor((Date.now() - start) / 1000);
+                    
+                    if (res >= 60) {
+                        var sc = Math.floor(res / 60);
+                        res = sc + ":" + (res % 60).toString().padStart(2, '0');
+                    } else {
+                        res = "0:" + res.toString().padStart(2, '0');
+                    }
+                    
+                    d.innerHTML = res;
+                };
+            })(), 1000);
+        </script>
+        
+      
+{% endblock %}
+ 

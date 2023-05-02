@@ -1,0 +1,73 @@
+{% load static %}
+{% block styles %}
+
+<style>
+    .myDiv {
+        width:50em;
+        border: 1px solid #333;
+        box-shadow: 8px 8px 5px #e0aa3e;
+        padding: 8px 12px;
+        margin: auto;
+        background: rgb(34,193,195);
+        background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        margin-left:5%;
+        margin-top: 5%;
+    }
+    .btnend {
+        transition: 0.2s ease-in;
+        font-size: 24px;
+        text-decoration: none;
+        color: #a0a033;
+        font-weight: bold;
+        border: 1px solid black;
+        padding:4px;
+        background: rgb(253, 231, 204);
+        margin: 10px;
+        margin: auto;
+        
+        border-radius: 8px;
+    }
+    .btnend:hover{
+        transition: 0.2s ease-out;
+        box-shadow: 0px 0px 10px 1px black;
+    }
+    body {
+        background-image: url('{% static "img/img7.jpg" %}');
+        background-repeat: no-repeat;
+        background-size: cover;
+       
+    }
+</style>
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" integrity="sha512-N5UjK5UxV81OG6XyS7AR8BvZGcJtbw1cZzLpsTY8+yvfb/z+91irDfw9yjPpmW+YbftnboZL3qQ2JtnWTDa1nQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+{% endblock %} 
+
+<body>
+
+{% block content%}
+
+<div class="container-fluid">
+    <div class="row justify-content-center mt-5">
+        <div class="col-lg-6 col-md-8 col-sm-10">
+            <div class="myDiv">
+                <div class="cardmain">
+                    <h1 class="text-center"><span style="font-weight: 200">Awesome!!!</span> {{name}}</h1>
+                    <h1 style="font-weight: 100" class="text-center mb-4">Hurry! you found the tool... Now, the Archaeologist came out from the well safely! Also you answered some of most difficult questions. The questions tested soft skills and you performed amazingly well in it. Hope to see you back soon to solve more such cases...</h1>
+                    <!--<h2> Your total score is {{score}} points.</h2>-->
+                </div>
+                <center>
+                <div class="row justify-content-center mt-4">
+                    <div class="col-md-4 col-sm-6 text-center">
+                        <a class="btnend" href="{% url 'home' %}">Home</a>
+                    </div>
+                </div>
+                </center>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
