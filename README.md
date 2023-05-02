@@ -52,18 +52,7 @@ There are 2 tables used for this project:\
 
 Users: Stores the user details.\
 Treasure: Stores the status of the user.
-The code is not much complicated and is easy to understand. The dead-ends are also linearly arranged and simple logic is applied for that.
-
-
-# Tables Used
-
-
-
-
-
-
-
-
+The code is not much complicated and is easy to understand. The dead-ends are also linearly arranged and simple logic is applied for tha
 
 # Installation
 
@@ -72,12 +61,10 @@ It is required to have Python installed in the system.
 It is necessary to check if your requirements are already installed, please refer requirements.txt file in the repository.
 you can install the dependencies as follows:
 
- >  pip install -r requirements.txt
-
+    >  pip install -r requirements.txt
 For installation, It is recommended to create a virtual environment. You can use the following command for creating a virtual environment:
 
-> python -m venv {name}
-
+    > python -m venv {name}
 now you can paste the files in this virtual environment, and then once you are ready you can activate the virtual environment as:
 
     > {name}\scripts\activate  
